@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Eye, EyeOff, Plane } from 'lucide-react';
+import { Eye, EyeOff } from 'lucide-react';
 import {login} from '../api/authApi';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
@@ -42,13 +42,13 @@ export default function Login() {
     <div className="min-h-screen bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-8">
         <div className="flex items-center gap-3 mb-2">
-          <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-            <Plane className="w-6 h-6 text-white transform -rotate-45" />
+          <div className="w-10 h-10 rounded-lg flex items-center justify-center">
+            <img src="/images/latam-airlines.svg" alt="" />
           </div>
           <h1 className="text-2xl font-bold text-gray-800">Latam AirLines</h1>
         </div>
 
-        <h2 className="text-3xl font-bold text-gray-900 mb-2">
+        <h2 className="text-3xl font-bold text-gray-900 mt-4 mb-2">
           Bienvenido de vuelta
         </h2>
         <p className="text-gray-600 text-sm mb-8">
@@ -64,7 +64,7 @@ export default function Login() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="tuemail@ejemplo.com"
+              placeholder="ejemplo@outlook.com"
               required
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
             />

@@ -35,7 +35,7 @@ export default function UserIndex() {
         const fetchDestinos = async () => {
             try {
                 setLoading(true);
-                const response = await fetch('http://localhost:3003/destinos');
+                const response = await fetch('http://localhost:3003/destinos/disponibles');
 
                 if (!response.ok) {
                     throw new Error('Error al cargar los destinos');

@@ -3,6 +3,7 @@ import { Plane, Users, Calendar, CreditCard, Menu, LogOut } from 'lucide-react';
 import GestionVuelos from './GestionVuelos';
 import GestionInicio from './GestionInicio';
 import { useNavigate } from 'react-router-dom';
+import GestionDestinos from './GestionDestinos';
 
 
 interface Usuario {
@@ -72,6 +73,14 @@ export default function AirlineDashboard() {
                         <span>Vuelos</span>
                     </button>
                     <button
+                        onClick={() => cambiarVista('destinos')}
+                        className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${currentView === 'destinos' ? 'bg-blue-600' : 'hover:bg-slate-700'
+                            }`}
+                    >
+                        <CreditCard className="w-5 h-5" />
+                        <span>Destinos</span>
+                    </button>
+                    <button
                         onClick={() => cambiarVista('usuarios')}
                         className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${currentView === 'tripulacion' ? 'bg-blue-600' : 'hover:bg-slate-700'
                             }`}
@@ -88,22 +97,6 @@ export default function AirlineDashboard() {
                         <span>Reservas</span>
                     </button>
                     <button
-                        onClick={() => cambiarVista('destinos')}
-                        className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${currentView === 'destinos' ? 'bg-blue-600' : 'hover:bg-slate-700'
-                            }`}
-                    >
-                        <CreditCard className="w-5 h-5" />
-                        <span>Destinos</span>
-                    </button>
-                    <button
-                        onClick={() => cambiarVista('pagos')}
-                        className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${currentView === 'pagos' ? 'bg-blue-600' : 'hover:bg-slate-700'
-                            }`}
-                    >
-                        <CreditCard className="w-5 h-5" />
-                        <span>Pagos</span>
-                    </button>
-                    <button
                         onClick={() => cambiarVista('ventas')}
                         className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${currentView === 'ventas' ? 'bg-blue-600' : 'hover:bg-slate-700'
                             }`}
@@ -118,7 +111,7 @@ export default function AirlineDashboard() {
                 <div className="absolute bottom-0 w-64 p-4 border-t border-slate-700">
                     <button className="w-full flex items-center gap-3 px-4 py-3 hover:bg-slate-700 rounded-lg mb-2 transition-colors">
                         <div className="w-8 h-8 bg-slate-600 rounded-full flex items-center justify-center">
-                            <span className="text-sm">A</span>
+                            <span className="text-sm">{usuario?.nombreCompleto.charAt(0).toUpperCase()} </span>
                         </div>
                         <div className="text-left">
                             <p className="text-lg font-semibold text-white-800">{usuario?.nombreCompleto}</p>
@@ -145,7 +138,6 @@ export default function AirlineDashboard() {
                             {currentView === 'vuelos' && 'Gestión de Vuelos'}
                             {currentView === 'usuarios' && 'Gestión de Usuarios'}
                             {currentView === 'reservas' && 'Gestión de Reservas'}
-                            {currentView === 'pagos' && 'Gestión de Pagos'}
                             {currentView === 'destinos' && 'Gestión de Destinos'}
                             {currentView === 'ventas' && 'Gestión de Ventas'}
                         </h2>
@@ -156,6 +148,7 @@ export default function AirlineDashboard() {
                 {/* Content */}
                 {currentView === 'inicio' && GestionInicio()}
                 {currentView === 'vuelos' && GestionVuelos()}
+                {currentView === 'destinos' && GestionDestinos()}
                 {currentView === 'usuarios' && (
                     <div className="p-8 flex items-center justify-center h-full">
                         <div className="text-center">
@@ -170,24 +163,6 @@ export default function AirlineDashboard() {
                         <div className="text-center">
                             <Calendar className="w-16 h-16 text-slate-600 mx-auto mb-4" />
                             <h3 className="text-xl font-semibold mb-2">Gestión de Reservas</h3>
-                            <p className="text-slate-400">Esta sección está en desarrollo</p>
-                        </div>
-                    </div>
-                )}
-                {currentView === 'pagos' && (
-                    <div className="p-8 flex items-center justify-center h-full">
-                        <div className="text-center">
-                            <CreditCard className="w-16 h-16 text-slate-600 mx-auto mb-4" />
-                            <h3 className="text-xl font-semibold mb-2">Gestión de Pagos</h3>
-                            <p className="text-slate-400">Esta sección está en desarrollo</p>
-                        </div>
-                    </div>
-                )}
-                {currentView === 'destinos' && (
-                    <div className="p-8 flex items-center justify-center h-full">
-                        <div className="text-center">
-                            <CreditCard className="w-16 h-16 text-slate-600 mx-auto mb-4" />
-                            <h3 className="text-xl font-semibold mb-2">Gestión de Destinos</h3>
                             <p className="text-slate-400">Esta sección está en desarrollo</p>
                         </div>
                     </div>
