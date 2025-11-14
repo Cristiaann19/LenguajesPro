@@ -23,7 +23,7 @@ export default function UserIndex() {
     const [destinations, setDestinations] = useState<Destino[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-    
+
     useEffect(() => {
         const usuarioString = localStorage.getItem('usuario');
         if (usuarioString) {
@@ -36,11 +36,11 @@ export default function UserIndex() {
             try {
                 setLoading(true);
                 const response = await fetch('http://localhost:3003/destinos');
-                
+
                 if (!response.ok) {
                     throw new Error('Error al cargar los destinos');
                 }
-                
+
                 const data = await response.json();
                 setDestinations(data);
                 setError(null);
@@ -51,7 +51,7 @@ export default function UserIndex() {
                 setLoading(false);
             }
         };
-        
+
         fetchDestinos();
     }, []);
 
@@ -74,7 +74,7 @@ export default function UserIndex() {
                             <a href="/index" className="text-blue-600 font-semibold border-b-2 border-blue-600">Buscar Vuelos</a>
                             <a href="#" className="text-gray-700 hover:text-blue-600">Mis Reservas</a>
                             <a href="#" className="text-gray-700 hover:text-blue-600">Check-in</a>
-                            
+
                             {usuario && (
                                 <div className="flex items-center gap-3 px-4 py-2 bg-gray-100 rounded-lg">
                                     <User className="w-5 h-5 text-gray-600" />
@@ -85,7 +85,7 @@ export default function UserIndex() {
                                 </div>
                             )}
 
-                            <button 
+                            <button
                                 onClick={handleLogout}
                                 className="flex items-center gap-2 text-red-600 hover:text-red-700 cursor-pointer"
                             >
@@ -116,7 +116,7 @@ export default function UserIndex() {
                             <a href="/index" className="block text-blue-600 font-semibold">Buscar Vuelos</a>
                             <a href="#" className="block text-gray-700">Mis Reservas</a>
                             <a href="#" className="block text-gray-700">Check-in</a>
-                            <button 
+                            <button
                                 onClick={handleLogout}
                                 className="w-full text-left text-red-600 py-2 cursor-pointer"
                             >
@@ -143,21 +143,21 @@ export default function UserIndex() {
                     <p className="text-xl text-white/90 mb-8">
                         Encuentra tu próximo destino y reserva con los mejores precios
                     </p>
-                    
+
                     {/* Buscador rápido */}
                     <div className="bg-white rounded-xl shadow-2xl p-6 w-full max-w-4xl">
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                            <input 
-                                type="text" 
+                            <input
+                                type="text"
                                 placeholder="Origen"
                                 className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             />
-                            <input 
-                                type="text" 
+                            <input
+                                type="text"
                                 placeholder="Destino"
                                 className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             />
-                            <input 
+                            <input
                                 type="date"
                                 className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             />
@@ -264,13 +264,12 @@ export default function UserIndex() {
                                     <p className="text-gray-600 mb-4">{dest.descripcion}</p>
                                     <div className="flex items-center justify-between">
                                         <span className="text-2xl font-bold text-blue-600">${dest.precio}</span>
-                                        <button 
+                                        <button
                                             disabled={!dest.disponible}
-                                            className={`px-6 py-2 rounded-lg font-semibold transition-colors ${
-                                                dest.disponible 
-                                                ? 'btn-reservar' 
-                                                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                                            }`}
+                                            className={`px-6 py-2 rounded-lg font-semibold transition-colors ${dest.disponible
+                                                    ? 'btn-reservar'
+                                                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                                                }`}
                                         >
                                             {dest.disponible ? 'Reservar' : 'No disponible'}
                                         </button>
@@ -313,7 +312,7 @@ export default function UserIndex() {
                             <h3 className="font-bold mb-4">Usuario</h3>
                             <div className="text-gray-400">
                                 <p className="mb-2">{usuario?.nombreCompleto || 'Invitado'}</p>
-                                <button 
+                                <button
                                     onClick={handleLogout}
                                     className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm cursor-pointer"
                                 >
@@ -323,7 +322,7 @@ export default function UserIndex() {
                         </div>
                     </div>
                     <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-                        <p>© 2024 AirLatam. Todos los derechos reservados.</p>
+                        <p>© 2024 Latam AirLines. Todos los derechos reservados.</p>
                     </div>
                 </div>
             </footer>

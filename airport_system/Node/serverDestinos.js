@@ -6,11 +6,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// URL real del backend Java
 const JAVA_API = "http://localhost:8080/system/destinos";
 
 
-// ✔ 1. Obtener todos los destinos
 app.get("/destinos", async (req, res) => {
     try {
         const response = await axios.get(`${JAVA_API}`);
@@ -20,7 +18,6 @@ app.get("/destinos", async (req, res) => {
     }
 });
 
-// ✔ 2. Obtener solo disponibles
 app.get("/destinos/disponibles", async (req, res) => {
     try {
         const response = await axios.get(`${JAVA_API}/disponibles`);
@@ -30,7 +27,6 @@ app.get("/destinos/disponibles", async (req, res) => {
     }
 });
 
-// ✔ 3. Obtener destino por ID
 app.get("/destinos/:id", async (req, res) => {
     try {
         const response = await axios.get(`${JAVA_API}/${req.params.id}`);
@@ -40,7 +36,6 @@ app.get("/destinos/:id", async (req, res) => {
     }
 });
 
-// ✔ 4. Crear destino
 app.post("/destinos", async (req, res) => {
     try {
         const response = await axios.post(`${JAVA_API}`, req.body);
@@ -50,7 +45,6 @@ app.post("/destinos", async (req, res) => {
     }
 });
 
-// ✔ 5. Actualizar destino
 app.put("/destinos/:id", async (req, res) => {
     try {
         const response = await axios.put(`${JAVA_API}/${req.params.id}`, req.body);
@@ -60,7 +54,6 @@ app.put("/destinos/:id", async (req, res) => {
     }
 });
 
-// ✔ 6. Eliminar destino
 app.delete("/destinos/:id", async (req, res) => {
     try {
         const response = await axios.delete(`${JAVA_API}/${req.params.id}`);
@@ -70,7 +63,6 @@ app.delete("/destinos/:id", async (req, res) => {
     }
 });
 
-// ✔ 7. Buscar destino por ciudad
 app.get("/destinos/buscar", async (req, res) => {
     try {
         const response = await axios.get(`${JAVA_API}/buscar`, {

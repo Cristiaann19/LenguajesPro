@@ -45,7 +45,7 @@ export default function Login() {
           <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
             <Plane className="w-6 h-6 text-white transform -rotate-45" />
           </div>
-          <h1 className="text-2xl font-bold text-gray-800">AeroFly</h1>
+          <h1 className="text-2xl font-bold text-gray-800">Latam AirLines</h1>
         </div>
 
         <h2 className="text-3xl font-bold text-gray-900 mb-2">
