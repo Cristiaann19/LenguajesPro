@@ -231,16 +231,6 @@ const DestinoList: React.FC = () => {
                 ),
             },
             {
-                accessorKey: 'ciudad',
-                header: 'Ciudad',
-                size: 150,
-                Cell: ({ cell }) => (
-                    <span className="font-semibold">
-                        {cell.getValue<string>()}
-                    </span>
-                ),
-            },
-            {
                 accessorKey: 'imagen',
                 header: 'Imagen',
                 size: 120,
@@ -250,6 +240,16 @@ const DestinoList: React.FC = () => {
                         alt="destino"
                         className="w-20 h-14 rounded-lg object-cover border border-slate-600"
                     />
+                ),
+            },
+            {
+                accessorKey: 'ciudad',
+                header: 'Ciudad',
+                size: 150,
+                Cell: ({ cell }) => (
+                    <span className="font-semibold">
+                        {cell.getValue<string>()}
+                    </span>
                 ),
             },
             {
