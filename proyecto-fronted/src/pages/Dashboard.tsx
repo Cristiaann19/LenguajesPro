@@ -88,6 +88,14 @@ export default function AirlineDashboard() {
                         <span>Reservas</span>
                     </button>
                     <button
+                        onClick={() => cambiarVista('destinos')}
+                        className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${currentView === 'destinos' ? 'bg-blue-600' : 'hover:bg-slate-700'
+                            }`}
+                    >
+                        <CreditCard className="w-5 h-5" />
+                        <span>Destinos</span>
+                    </button>
+                    <button
                         onClick={() => cambiarVista('pagos')}
                         className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${currentView === 'pagos' ? 'bg-blue-600' : 'hover:bg-slate-700'
                             }`}
@@ -103,14 +111,7 @@ export default function AirlineDashboard() {
                         <CreditCard className="w-5 h-5" />
                         <span>Ventas</span>
                     </button>
-                    <button
-                        onClick={() => cambiarVista('slider')}
-                        className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg mb-2 transition-colors ${currentView === 'slider' ? 'bg-blue-600' : 'hover:bg-slate-700'
-                            }`}
-                    >
-                        <CreditCard className="w-5 h-5" />
-                        <span>Slider</span>
-                    </button>
+                    
                 </nav>
 
                 {/* Bottom Profile */}
@@ -145,7 +146,7 @@ export default function AirlineDashboard() {
                             {currentView === 'usuarios' && 'Gestión de Usuarios'}
                             {currentView === 'reservas' && 'Gestión de Reservas'}
                             {currentView === 'pagos' && 'Gestión de Pagos'}
-                            {currentView === 'slider' && 'Gestión de Slider'}
+                            {currentView === 'destinos' && 'Gestión de Destinos'}
                             {currentView === 'ventas' && 'Gestión de Ventas'}
                         </h2>
                     </div>
@@ -182,11 +183,11 @@ export default function AirlineDashboard() {
                         </div>
                     </div>
                 )}
-                {currentView === 'slider' && (
+                {currentView === 'destinos' && (
                     <div className="p-8 flex items-center justify-center h-full">
                         <div className="text-center">
                             <CreditCard className="w-16 h-16 text-slate-600 mx-auto mb-4" />
-                            <h3 className="text-xl font-semibold mb-2">Gestión de Slider</h3>
+                            <h3 className="text-xl font-semibold mb-2">Gestión de Destinos</h3>
                             <p className="text-slate-400">Esta sección está en desarrollo</p>
                         </div>
                     </div>

@@ -35,7 +35,7 @@ export default function UserIndex() {
         const fetchDestinos = async () => {
             try {
                 setLoading(true);
-                const response = await fetch('http://localhost:8080/system/destinos');
+                const response = await fetch('http://localhost:3003/destinos');
                 
                 if (!response.ok) {
                     throw new Error('Error al cargar los destinos');
@@ -323,7 +323,7 @@ export default function UserIndex() {
                         </div>
                     </div>
                     <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-                        <p>© 2024 AeroFly. Todos los derechos reservados.</p>
+                        <p>© 2024 AirLatam. Todos los derechos reservados.</p>
                     </div>
                 </div>
             </footer>

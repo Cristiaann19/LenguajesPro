@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/system/auth";
+const API_NODE = "http://localhost:3001/auth";
 
 export interface LoginRequest {
     email: string;
@@ -27,9 +27,9 @@ export interface AuthResponse {
 }
 
 export const login = async (data: LoginRequest) => {
-    return await axios.post<AuthResponse>(`${API_URL}/login`, data);
+    return await axios.post<AuthResponse>(`${API_NODE}/login`, data);
 };
 
 export const registro = async (data: RegistroRequest) => {
-    return await axios.post<AuthResponse>(`${API_URL}/registro`, data);
+    return await axios.post<AuthResponse>(`${API_NODE}/registro`, data);
 };
