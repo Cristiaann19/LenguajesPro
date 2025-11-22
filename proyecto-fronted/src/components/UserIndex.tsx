@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, LogOut, User, Calendar, Plane, Search } from 'lucide-react';
+import { obtenerDisponibles } from '../api/DestinosApi';
 
 interface Usuario {
     idUsuario: number;
@@ -31,29 +32,31 @@ export default function UserIndex() {
         }
     }, []);
 
-    useEffect(() => {
-        const fetchDestinos = async () => {
-            try {
-                setLoading(true);
-                const response = await fetch('http://localhost:3003/destinos/disponibles');
+    useEffect(()=> {
+        cargarDestinosEnables();
+    },[]);
 
-                if (!response.ok) {
-                    throw new Error('Error al cargar los destinos');
-                }
+    const cargarDestinosEnables = async () =>{
+        try {
+            setLoading(true)
+            setError("")
+            const res = await obtenerDisponibles();
 
-                const data = await response.json();
-                setDestinations(data);
-                setError(null);
-            } catch (err) {
-                console.error('Error al cargar destinos:', err);
-                setError('No se pudieron cargar los destinos. Verifica que el servidor esté corriendo.');
-            } finally {
-                setLoading(false);
+            if(Array.isArray(res.data)){
+                setDestinations(res.data)
+            }else{
+                setError("La respuesta no es un array valido")
             }
-        };
+        } catch (err: any) {
+            console.error("Error al cargar destinos:", err);
+            setError(err.response?.data?.message || "Error al cargar destinos");
+            setDestinations([]);
+        } finally {
+            setLoading(false);
+        }
+    }
 
-        fetchDestinos();
-    }, []);
+
 
     const handleLogout = () => {
         localStorage.clear();

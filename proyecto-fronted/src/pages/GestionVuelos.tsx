@@ -1,4 +1,4 @@
-import VueloList from "../components/VueloList";
+import VueloList from "../components/dashboard/VueloList";
 
 const GestionVuelos = () => {
     return (

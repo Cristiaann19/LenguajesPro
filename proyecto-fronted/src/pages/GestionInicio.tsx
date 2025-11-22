@@ -1,4 +1,4 @@
-import DashboardPart from "../components/DashboardPart"
+import DashboardPart from "../components/dashboard/DashboardPart"
 
 const GestionInicio = () => {
     return (

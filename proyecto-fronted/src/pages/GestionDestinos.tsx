@@ -1,4 +1,4 @@
-import DestinosPart from "../components/DestinosPart"
+import DestinosPart from "../components/dashboard/DestinosPart"
 
 const GestionDestinos = () => {
     return (

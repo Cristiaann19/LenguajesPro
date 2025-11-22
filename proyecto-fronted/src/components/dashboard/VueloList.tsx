@@ -8,7 +8,7 @@ import {
     CheckCircle,
     AlertTriangle
 } from "lucide-react";
-import { listarVuelos, eliminarVuelo, registrarVuelo, actualizarVuelo, cambiarEstadoVuelo } from "../api/vueloApi";
+import { listarVuelos, eliminarVuelo, registrarVuelo, actualizarVuelo, cambiarEstadoVuelo } from "../../api/vueloApi";
 import toast from "react-hot-toast";
 import { motion, AnimatePresence } from "framer-motion";
 import { MaterialReactTable, type MRT_ColumnDef, useMaterialReactTable,} from 'material-react-table';

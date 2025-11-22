@@ -12,7 +12,7 @@ import {
     crearDestino,
     actualizarDestino,
     eliminarDestino,
-} from "../api/DestinosApi";
+} from "../../api/DestinosApi";
 import toast from "react-hot-toast";
 import { motion, AnimatePresence } from "framer-motion";
 import { MaterialReactTable, type MRT_ColumnDef, useMaterialReactTable } from 'material-react-table';
